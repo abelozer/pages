@@ -1,286 +1,320 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographic: The Reality of Vehicle Telemetry</title>
+    <title>Infographic: The Connected Vehicle Data Ecosystem</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #F0F4F8; /* Light Blue-Grey background */
-            color: #102A43; /* Dark Blue text */
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2D7DD2;
-            border-radius: 5px;
-        }
-
-        /* Chart Container Styling - MANDATORY */
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Slightly wider for infographic feel */
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             height: 400px;
             max-height: 500px;
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 1rem;
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Responsive height adjustments */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .chart-container {
-                height: 300px;
+                height: 450px;
             }
         }
 
-        /* Timeline / Flow Styles (CSS only, no SVG) */
-        .flow-step {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 4px solid #D9E2EC;
-        }
-        .flow-step:last-child {
-            border-left: 4px solid transparent;
-        }
-        .flow-dot {
-            position: absolute;
-            left: -12px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #FF6B00; /* Vibrant Orange */
-            border: 3px solid white;
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            transition: transform 0.2s;
         }
 
-        /* Palette Classes */
-        .text-accent-blue { color: #2D7DD2; }
-        .text-accent-orange { color: #FF6B00; }
-        .text-accent-teal { color: #00B4D8; }
-        .bg-accent-blue { background-color: #2D7DD2; }
-        .bg-accent-orange { background-color: #FF6B00; }
-        .bg-accent-teal { background-color: #00B4D8; }
-        
-        .card-shadow {
+        .card:hover {
+            transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #E2E8F0;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background-color: #0284C7;
+            border: 4px solid #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
     </style>
-    <!-- Chosen Palette: Brilliant Blues & Oranges (Blue: #2D7DD2, Orange: #FF6B00, Teal: #00B4D8, Dark: #102A43, Light: #F0F4F8) -->
+    <!-- Chosen Palette: Brilliant Blues (Primary: #0284C7, Secondary: #38BDF8, Dark: #0F172A, Background: #F8FAFC) -->
     <!-- Application Structure Plan:
-        1. Hero Section: Title and Hook about the "Data Tsunami" that isn't.
-        2. The Data Funnel: Visualizing the massive edge filtering (Log Scale Bar Chart).
-        3. Contextual Comparison: Putting telemetry in perspective vs Netflix (Bar Chart).
-        4. The IoT Matrix: Scatter plot showing Risk vs Volume for various IoT devices (Plotly Scatter).
-        5. Data Journey Flow: CSS-based process flow showing the path from Sensor to Cloud.
-        6. Strategic Takeaways: Card-based grid of recommendations.
+         1. Hero Section: Hooking the user with the concept of "Edge Intelligence" in vehicles.
+         2. Data Compression Funnel: Visualizing the drastic reduction from Sensor Generation to Cellular Upload.
+         3. Bandwidth Comparison: Contextualizing vehicle data against common consumer apps (Netflix/Zoom).
+         4. IoT Risk Matrix: A scatter plot identifying which devices actually threaten network stability (Volume vs Latency).
+         5. Data Lifecycle: A vertical process flow showing the journey of a data point.
+         6. Strategic Recommendations: Summary cards for infrastructure planning.
     -->
     <!-- Visualization & Content Choices:
-        1. Data Funnel -> Goal: Compare -> Chart.js Horizontal Bar (Logarithmic) -> Shows the 99.9% drop effectively. NO SVG.
-        2. Usage Comparison -> Goal: Compare -> Chart.js Bar -> Clear side-by-side magnitude difference. NO SVG.
-        3. IoT Risk Matrix -> Goal: Relationships -> Plotly.js Bubble Chart (Canvas) -> Shows Volume vs Criticality. NO SVG.
-        4. Data Journey -> Goal: Process -> Structured HTML/CSS -> Visualizes the edge compute pipeline. NO Mermaid/SVG.
+         1. Data Funnel -> Goal: Compare -> Chart.js Horizontal Bar (Logarithmic) -> Best for showing massive scale differences (TB vs MB). NO SVG.
+         2. Bandwidth Comp -> Goal: Compare -> Chart.js Bar -> Clear linear comparison of MB/hr. NO SVG.
+         3. IoT Matrix -> Goal: Relationships -> Plotly.js ScatterGL (WebGL) -> Handles volume/latency dimensions effectively. NO SVG export.
+         4. Lifecycle -> Goal: Process -> CSS/HTML Layout -> Clean visual flow without Mermaid/SVG.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-sky-200">
 
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-r from-[#102A43] to-[#243B53] text-white py-16 px-4">
-        <div class="max-w-6xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-4">
-                THE <span class="text-[#FF6B00]">MYTH</span> OF THE<br>
-                DATA TSUNAMI
+    <header class="bg-slate-900 text-white pt-20 pb-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500 rounded-full blur-[128px] opacity-20 -mr-20 -mt-20"></div>
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <h3 class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4">Telematics Infrastructure Report</h3>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                The <span class="text-sky-400">Hidden</span> Efficiency<br>of Connected Cars
             </h1>
-            <p class="text-xl md:text-2xl text-[#00B4D8] font-light max-w-3xl mx-auto">
-                Why millions of connected cars won't break the internet, but your security camera might.
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Autonomous vehicles generate terabytes of data daily, yet they consume less cellular bandwidth than a standard video call. This infographic explores the "Edge Intelligence" that makes this possible.
             </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <span class="px-4 py-2 bg-[#FF6B00] rounded-full font-bold text-sm">EDGE COMPUTING</span>
-                <span class="px-4 py-2 bg-[#2D7DD2] rounded-full font-bold text-sm">TELEMETRY ANALYSIS</span>
-            </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-12 space-y-20">
+    <main class="max-w-7xl mx-auto px-6 -mt-16 relative z-20 space-y-24 pb-24">
 
-        <!-- Section 1: The Data Funnel -->
+        <!-- Section 1: The Funnel -->
         <section>
-            <div class="mb-8 border-l-8 border-[#FF6B00] pl-6">
-                <h2 class="text-3xl font-bold text-[#102A43] mb-3">The 4 Terabyte Funnel</h2>
-                <p class="text-lg text-gray-600 leading-relaxed max-w-4xl">
-                    Modern Software Defined Vehicles (SDVs) are often described as "Data Centers on Wheels." While it is true that sensors generate massive amounts of raw information, the "Edge Computing" architecture ensures that 99.9% of this data never leaves the chassis. The car processes vision and decision-making locally, transmitting only metadata and specific "corner cases" to the cloud.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="md:col-span-2">
-                    <div class="chart-container">
-                        <canvas id="funnelChart"></canvas>
+            <div class="card mb-8">
+                <div class="md:grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">The Information Filter</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            A common misconception is that connected cars stream everything to the cloud. In reality, cars are <strong>Edge Datacenters</strong>. They filter out 99.9% of routine driving data locally, uploading only critical anomalies and metadata.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-slate-700">
+                                <span class="w-2 h-2 bg-sky-500 rounded-full mr-3"></span>
+                                <strong>4.2 TB</strong> generated by sensors daily.
+                            </li>
+                            <li class="flex items-center text-slate-700">
+                                <span class="w-2 h-2 bg-sky-500 rounded-full mr-3"></span>
+                                <strong>50 MB</strong> sent via cellular networks daily.
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="md:col-span-1 space-y-6">
-                    <div class="bg-white p-6 rounded-lg card-shadow border-t-4 border-[#2D7DD2]">
-                        <h3 class="text-2xl font-bold text-[#2D7DD2] mb-1">4 TB</h3>
-                        <p class="text-sm font-semibold uppercase text-gray-500">Daily Generation</p>
-                        <p class="text-gray-700 mt-2 text-sm">Raw input from 8 cameras, Lidar, and Radar processed in real-time.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg card-shadow border-t-4 border-[#FF6B00]">
-                        <h3 class="text-2xl font-bold text-[#FF6B00] mb-1">50 MB</h3>
-                        <p class="text-sm font-semibold uppercase text-gray-500">Daily Cellular Upload</p>
-                        <p class="text-gray-700 mt-2 text-sm">The actual load on mobile networks is miniscule—mostly text logs and heartbeats.</p>
+                    <div class="mt-8 md:mt-0">
+                        <div class="chart-container">
+                            <canvas id="funnelChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-slate-400 mt-3">Logarithmic Scale (Base 10) used due to massive value disparity.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Contextual Comparison -->
-        <section class="bg-white rounded-3xl p-8 md:p-12 card-shadow">
-            <div class="mb-8 text-center">
-                <h2 class="text-3xl font-bold text-[#102A43] mb-4">Perspective: Cars vs. Consumers</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto">
-                    Fears of network congestion often stem from a misunderstanding of traffic types. A car is a telemetry device, not a media consumption device (unless parked). Compared to standard human behavior on 4G/5G networks—like streaming 4K video or video conferencing—a vehicle's telemetry stream is negligible.
+        <!-- Section 2: Comparative Context -->
+        <section>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Putting Bandwidth in Context</h2>
+                <p class="text-slate-600">
+                    Network operators fear a "Data Tsunami" from vehicles. However, when we compare the actual telemetry load against typical consumer behavior, the vehicle appears negligible. The real bandwidth hog is high-definition video streaming.
                 </p>
-            </div>
-
-            <div class="chart-container mx-auto">
-                <canvas id="comparisonChart"></canvas>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 text-center">
-                <div class="p-4 bg-[#F0F4F8] rounded-lg">
-                    <div class="text-3xl mb-2">🚗</div>
-                    <div class="font-bold text-[#102A43]">Telemetry</div>
-                    <div class="text-[#2D7DD2]">15 MB/hr</div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
                 </div>
-                <div class="p-4 bg-[#F0F4F8] rounded-lg">
-                    <div class="text-3xl mb-2">🎧</div>
-                    <div class="font-bold text-[#102A43]">Audio</div>
-                    <div class="text-[#2D7DD2]">150 MB/hr</div>
-                </div>
-                <div class="p-4 bg-[#F0F4F8] rounded-lg">
-                    <div class="text-3xl mb-2">📹</div>
-                    <div class="font-bold text-[#102A43]">Video Call</div>
-                    <div class="text-[#2D7DD2]">800 MB/hr</div>
-                </div>
-                <div class="p-4 bg-[#F0F4F8] rounded-lg">
-                    <div class="text-3xl mb-2">🎬</div>
-                    <div class="font-bold text-[#102A43]">4K Stream</div>
-                    <div class="text-[#2D7DD2]">3000 MB/hr</div>
+                <div class="space-y-6">
+                    <div class="card bg-sky-50 border-l-4 border-sky-500">
+                        <h4 class="text-lg font-bold text-sky-900 mb-1">Vehicle Telemetry</h4>
+                        <p class="text-3xl font-bold text-sky-600 mb-2">15 MB/hr</p>
+                        <p class="text-sm text-sky-800">Operational logs, GPS coordinates, and vehicle health status.</p>
+                    </div>
+                    <div class="card bg-slate-50 border-l-4 border-slate-400">
+                        <h4 class="text-lg font-bold text-slate-900 mb-1">Netflix 4K HDR</h4>
+                        <p class="text-3xl font-bold text-slate-600 mb-2">7,000 MB/hr</p>
+                        <p class="text-sm text-slate-800">High bitrate video streaming dominates current network capacity.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: The Data Journey (Process Flow) -->
+        <!-- Section 3: The Threat Matrix -->
         <section>
-            <div class="mb-10 border-l-8 border-[#00B4D8] pl-6">
-                <h2 class="text-3xl font-bold text-[#102A43] mb-3">The Lifecycle of a Data Point</h2>
-                <p class="text-lg text-gray-600 max-w-4xl">
-                    How does a "Smart" car decide what to send? This process flow illustrates the critical "Edge Filtering" logic that protects cellular infrastructure from being overwhelmed.
-                </p>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-slate-200 pb-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Infrastructure Threat Matrix</h2>
+                    <p class="text-slate-600">
+                        Not all data is created equal. We classify IoT devices by two dimensions: <strong>Volume</strong> (Bandwidth load) and <strong>Sensitivity</strong> (Latency requirement).
+                    </p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wide">
+                        High Priority Analysis
+                    </span>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="chart-container">
+                        <div id="matrixPlot" style="width: 100%; height: 100%;"></div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="card">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-3">📹</span>
+                            <h3 class="font-bold text-slate-900">Smart Cameras</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            <strong>High Volume, High Latency.</strong> The biggest threat to uplink capacity. Continuous HD streams from security devices saturate cells.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-3">🚗</span>
+                            <h3 class="font-bold text-slate-900">Vehicles (V2X)</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            <strong>Low Volume, Critical Latency.</strong> They don't clog the pipe, but they need the "Fast Lane" (QoS) to prevent accidents.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-3">🏭</span>
+                            <h3 class="font-bold text-slate-900">Industrial IoT</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            <strong>Medium Volume, Medium Latency.</strong> Predictable, periodic reporting from stationary machinery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Data Lifecycle Process -->
+        <section>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">The Lifecycle of a Data Point</h2>
+                <p class="text-slate-600 mt-2">How raw chaos becomes structured intelligence.</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <div class="hidden md:block timeline-line"></div>
+                
                 <!-- Step 1 -->
-                <div class="relative bg-white p-6 rounded-xl border-t-8 border-[#2D7DD2] card-shadow">
-                    <div class="absolute -top-12 left-6 text-6xl font-black text-gray-200 z-0">1</div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-[#102A43] mb-2">Sense & Perceive</h4>
-                        <p class="text-sm text-gray-600 mb-4">Cameras ingest 4K video at 60fps. Lidar maps point clouds.</p>
-                        <div class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold">~4000 GB/Day</div>
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="md:text-right md:pr-12 pt-2">
+                        <h3 class="text-xl font-bold text-slate-900">1. Ingest & Sense</h3>
+                        <p class="text-slate-600 mt-2 text-sm">LIDAR, Radar, and 8x Cameras capture the environment at 60 FPS. This creates a massive 4.2TB daily footprint.</p>
+                    </div>
+                    <div class="absolute left-1/2 -ml-5 hidden md:flex timeline-dot">01</div>
+                    <div class="card md:ml-12 border-t-4 border-sky-500">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold uppercase text-slate-400">Volume</span>
+                            <span class="text-red-500 font-bold">Critical</span>
+                        </div>
+                        <div class="mt-2 text-2xl font-bold text-slate-800">Raw Stream</div>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative bg-white p-6 rounded-xl border-t-8 border-[#00B4D8] card-shadow">
-                    <div class="absolute -top-12 left-6 text-6xl font-black text-gray-200 z-0">2</div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-[#102A43] mb-2">Edge Inference</h4>
-                        <p class="text-sm text-gray-600 mb-4">On-board AI identifies objects. Raw frames are discarded immediately.</p>
-                        <div class="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold">Process & Discard</div>
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="order-2 md:order-1 card md:mr-12 border-t-4 border-sky-400">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold uppercase text-slate-400">Action</span>
+                            <span class="text-sky-500 font-bold">Compute</span>
+                        </div>
+                        <div class="mt-2 text-2xl font-bold text-slate-800">Vector Space</div>
+                    </div>
+                    <div class="absolute left-1/2 -ml-5 hidden md:flex timeline-dot">02</div>
+                    <div class="order-1 md:order-2 md:pl-12 pt-2">
+                        <h3 class="text-xl font-bold text-slate-900">2. Edge Inference</h3>
+                        <p class="text-slate-600 mt-2 text-sm">The on-board FSD Computer converts pixels into 3D vector space objects. Raw video frames are discarded immediately after processing.</p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative bg-white p-6 rounded-xl border-t-8 border-[#FF6B00] card-shadow">
-                    <div class="absolute -top-12 left-6 text-6xl font-black text-gray-200 z-0">3</div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-[#102A43] mb-2">Trigger Event</h4>
-                        <p class="text-sm text-gray-600 mb-4">Did the driver intervene? Was a sign misread? Save 10s clip.</p>
-                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">~2 GB Saved</div>
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="md:text-right md:pr-12 pt-2">
+                        <h3 class="text-xl font-bold text-slate-900">3. Strategic Upload</h3>
+                        <p class="text-slate-600 mt-2 text-sm">Only "Corner Cases" (confusing scenarios) are saved. Text logs use Cellular; heavy video training data waits for Garage Wi-Fi.</p>
                     </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="relative bg-white p-6 rounded-xl border-t-8 border-[#102A43] card-shadow">
-                    <div class="absolute -top-12 left-6 text-6xl font-black text-gray-200 z-0">4</div>
-                    <div class="relative z-10">
-                        <h4 class="text-xl font-bold text-[#102A43] mb-2">Smart Upload</h4>
-                        <p class="text-sm text-gray-600 mb-4">
-                            <span class="font-bold text-[#FF6B00]">Cellular:</span> Critical Logs.<br>
-                            <span class="font-bold text-[#2D7DD2]">Wi-Fi:</span> Bulk Video training data.
-                        </p>
-                        <div class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">Network Safe</div>
+                    <div class="absolute left-1/2 -ml-5 hidden md:flex timeline-dot">03</div>
+                    <div class="card md:ml-12 border-t-4 border-sky-600">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold uppercase text-slate-400">Result</span>
+                            <span class="text-green-500 font-bold">Efficient</span>
+                        </div>
+                        <div class="mt-2 text-2xl font-bold text-slate-800">50MB Total</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: The True IoT Landscape (Matrix) -->
-        <section>
-            <div class="mb-8 border-l-8 border-[#FF6B00] pl-6">
-                <h2 class="text-3xl font-bold text-[#102A43] mb-3">Identifying the Real Threats</h2>
-                <p class="text-lg text-gray-600 max-w-4xl">
-                    If cars aren't the problem, what is? This scatter plot analyzes various IoT categories based on their **Data Volume** (Bandwidth impact) and **Latency Sensitivity** (QoS impact). 
-                </p>
-                <p class="text-sm text-gray-500 mt-2">
-                    <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-1"></span> High Risk
-                    <span class="inline-block w-3 h-3 rounded-full bg-yellow-500 mx-1"></span> Medium Risk
-                    <span class="inline-block w-3 h-3 rounded-full bg-green-500 mx-1"></span> Low Risk
-                </p>
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-slate-400 py-12 rounded-3xl mt-12 text-center">
+            <h2 class="text-white font-bold text-2xl mb-4">Telematics Insights 2026</h2>
+            <p class="max-w-2xl mx-auto text-sm leading-relaxed mb-8">
+                Analysis based on aggregate manufacturer specifications and global ISP traffic reports. 
+                Visualized using Chart.js and Plotly.js Canvas rendering.
+            </p>
+            <div class="flex justify-center space-x-4 text-xs font-semibold uppercase tracking-widest">
+                <span>No SVG Assets</span>
+                <span>•</span>
+                <span>Canvas Rendered</span>
+                <span>•</span>
+                <span>Single File SPA</span>
             </div>
-
-            <div class="chart-container">
-                <div id="iotPlot" style="width:100%;height:100%;"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
-                    <h5 class="font-bold text-red-800">Smart Cameras (Video IoT)</h5>
-                    <p class="text-sm text-red-700">The highest load category. Continuous upload of HD video saturates upstream bandwidth, unlike the bursty nature of vehicle data.</p>
-                </div>
-                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                    <h5 class="font-bold text-green-800">Vehicle Telemetry</h5>
-                    <p class="text-sm text-green-700">Low bandwidth, low latency urgency. Easily managed by existing 4G networks as background traffic.</p>
-                </div>
-            </div>
-        </section>
+        </footer>
 
     </main>
 
-    <footer class="bg-[#102A43] text-white py-12 text-center">
-        <p class="font-bold text-2xl tracking-widest mb-2">INFOGRAPHIC</p>
-        <p class="text-[#00B4D8] text-sm">Based on 2026 Vehicle Telemetry Analysis Report</p>
-    </footer>
-
     <script>
-        // --- Helper: Label Wrapping Logic ---
+        // --- Helper: Label Wrapping for Chart.js ---
         function wrapLabel(str, maxChars) {
             if (str.length <= maxChars) return str;
             const words = str.split(' ');
@@ -299,8 +333,8 @@
             return lines;
         }
 
-        // --- Helper: Common Tooltip Config ---
-        const commonTooltip = {
+        // --- Helper: Tooltip Config ---
+        const tooltipConfig = {
             callbacks: {
                 title: function(tooltipItems) {
                     const item = tooltipItems[0];
@@ -320,19 +354,19 @@
             type: 'bar',
             data: {
                 labels: [
-                    wrapLabel('Raw Sensor Generation', 16),
-                    wrapLabel('Edge Processed', 16),
-                    wrapLabel('Wi-Fi Bulk Upload', 16),
-                    wrapLabel('Cellular Telemetry', 16)
+                    wrapLabel('Total Sensor Data Generated', 18),
+                    wrapLabel('Edge Processing Discarded', 18),
+                    wrapLabel('Wi-Fi Batch Uploads', 18),
+                    wrapLabel('Cellular Telemetry Sent', 18)
                 ],
                 datasets: [{
-                    label: 'Megabytes per Day (Log Scale)',
-                    data: [4000000, 500000, 2000, 50],
+                    label: 'Megabytes (Log Scale)',
+                    data: [4200000, 4000000, 2000, 50],
                     backgroundColor: [
-                        '#102A43', // Darkest Blue
-                        '#2D7DD2', // Primary Blue
-                        '#00B4D8', // Teal
-                        '#FF6B00'  // Orange (Focus)
+                        '#0F172A', // Dark Slate
+                        '#334155', // Slate
+                        '#0EA5E9', // Sky Blue
+                        '#0284C7'  // Deep Sky
                     ],
                     borderRadius: 6,
                     barThickness: 40
@@ -345,8 +379,8 @@
                 scales: {
                     x: {
                         type: 'logarithmic',
-                        title: { display: true, text: 'Data Volume (MB) - Logarithmic Scale' },
-                        grid: { color: '#e2e8f0' }
+                        grid: { color: '#F1F5F9' },
+                        title: { display: true, text: 'Megabytes (MB)' }
                     },
                     y: {
                         grid: { display: false }
@@ -354,7 +388,7 @@
                 },
                 plugins: {
                     legend: { display: false },
-                    tooltip: commonTooltip
+                    tooltip: tooltipConfig
                 }
             }
         });
@@ -364,17 +398,17 @@
         new Chart(ctxComp, {
             type: 'bar',
             data: {
-                labels: ['Vehicle Telemetry', 'Spotify Audio', 'Zoom Video', 'Netflix 4K'],
+                labels: ['Car Telemetry', 'Spotify Audio', 'Zoom HD Call', 'Netflix 4K Stream'],
                 datasets: [{
                     label: 'MB per Hour',
-                    data: [15, 150, 800, 3000],
+                    data: [15, 150, 800, 7000],
                     backgroundColor: [
-                        '#2D7DD2', // Blue
-                        '#BCCCDC', // Light Grey-Blue
-                        '#9FB3C8', // Mid Grey-Blue
-                        '#FF6B00'  // Orange
+                        '#0284C7', // Hero Color
+                        '#94A3B8', // Muted
+                        '#CBD5E1', // Muted
+                        '#EF4444'  // Alert Red
                     ],
-                    borderRadius: 4
+                    borderRadius: 8
                 }]
             },
             options: {
@@ -383,8 +417,8 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        title: { display: true, text: 'Megabytes per Hour' },
-                        grid: { color: '#e2e8f0' }
+                        grid: { color: '#F1F5F9' },
+                        title: { display: true, text: 'Megabytes per Hour' }
                     },
                     x: {
                         grid: { display: false }
@@ -392,54 +426,58 @@
                 },
                 plugins: {
                     legend: { display: false },
-                    tooltip: commonTooltip
+                    tooltip: tooltipConfig
                 }
             }
         });
 
-        // --- Chart 3: IoT Risk Matrix (Plotly.js) ---
-        // Using Plotly for a Bubble/Scatter chart to show 3 dimensions (Vol, Latency, Risk)
+        // --- Chart 3: Threat Matrix (Plotly ScatterGL) ---
         const trace1 = {
-            x: [2, 8, 9, 3, 5], // Data Volume (Low to High)
-            y: [2, 9, 8, 6, 4], // Latency Sensitivity (Low to High)
-            text: ['Telemetry', 'V2X Safety', 'Smart Cameras', 'Smart Meters', 'Industrial IoT'],
+            x: [1, 9, 9.5, 3, 5], // Volume
+            y: [2, 9, 8.5, 6, 4], // Latency Sensitivity
+            text: ['Telemetry', 'V2X Safety', '4K Cameras', 'Smart Meters', 'Industrial IoT'],
             mode: 'markers+text',
             textposition: 'top center',
             marker: {
-                size: [20, 30, 45, 15, 25], // Bubble size = Impact/Risk
-                color: ['#00B4D8', '#FF6B00', '#D32F2F', '#2D7DD2', '#FBC02D'], // Teal, Orange, Red, Blue, Yellow
-                opacity: 0.8
+                size: [25, 35, 60, 15, 25],
+                color: ['#0EA5E9', '#F59E0B', '#EF4444', '#64748B', '#3B82F6'],
+                opacity: 0.9,
+                line: { color: 'white', width: 2 }
             },
-            type: 'scatter'
+            type: 'scattergl' // Using WebGL for performance and canvas rendering
         };
 
         const layout = {
-            title: 'IoT Classification: Volume vs. Sensitivity',
-            xaxis: {
-                title: 'Data Volume (Bandwidth Strain)',
-                range: [0, 10],
-                showgrid: true,
+            title: { text: 'IoT Threat Matrix', font: { family: 'Inter', size: 18, color: '#0F172A' } },
+            xaxis: { 
+                title: 'Data Volume (Bandwidth Strain)', 
+                range: [0, 11],
+                gridcolor: '#F1F5F9',
                 zeroline: false
             },
-            yaxis: {
-                title: 'Latency Sensitivity (QoS Strain)',
-                range: [0, 10],
-                showgrid: true,
+            yaxis: { 
+                title: 'Latency Sensitivity (Urgency)', 
+                range: [0, 11],
+                gridcolor: '#F1F5F9',
                 zeroline: false
             },
             margin: { t: 50, l: 50, r: 50, b: 50 },
-            font: { family: 'Roboto, sans-serif' },
+            font: { family: 'Inter, sans-serif' },
             paper_bgcolor: 'rgba(0,0,0,0)',
-            plot_bgcolor: 'rgba(0,0,0,0)'
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            hovermode: 'closest'
         };
 
         const config = {
             responsive: true,
-            displayModeBar: false
+            displayModeBar: false,
+            staticPlot: false
         };
 
-        Plotly.newPlot('iotPlot', [trace1], layout, config);
+        Plotly.newPlot('matrixPlot', [trace1], layout, config);
 
     </script>
 </body>
 </html>
+
+```
