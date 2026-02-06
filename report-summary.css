@@ -205,42 +205,42 @@ h2 {
   line-height: 1.45;
 }
 
-.references p {
-  margin: 0 0 0.72rem;
-  color: var(--muted);
-  font-size: 0.88rem;
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
 }
 
-#sourceList {
+.track {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.78rem 0.85rem;
+}
+
+.track h3 {
   margin: 0;
-  padding-left: 1.1rem;
-  column-count: 2;
-  column-gap: 1.7rem;
+  font-size: 0.93rem;
+  color: var(--brand);
 }
 
-#sourceList li {
-  margin-bottom: 0.36rem;
-  break-inside: avoid;
+.track ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1rem;
 }
 
-#sourceList a {
-  color: var(--ok);
-  text-decoration: none;
-}
-
-#sourceList a:hover,
-#sourceList a:focus-visible {
-  text-decoration: underline;
+.track li {
+  margin: 0.36rem 0;
+  color: var(--ink);
+  line-height: 1.4;
+  font-size: 0.87rem;
 }
 
 @media (max-width: 840px) {
   .kpi-grid,
-  .case-grid {
+  .case-grid,
+  .track-grid {
     grid-template-columns: 1fr;
-  }
-
-  #sourceList {
-    column-count: 1;
   }
 
   .panel-head {

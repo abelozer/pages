@@ -38,16 +38,6 @@ const caseSignals = [
   }
 ];
 
-const sourceLinks = [
-  ["Light Reading: Singtel + SKT GPU Business", "https://www.lightreading.com/cloud/singtel-skt-target-the-cloud-gpu-business"],
-  ["Telecom Review Asia: GPUaaS Growth", "https://www.telecomreviewasia.com/news/featured-articles/27841-why-gpu-as-a-service-is-telecoms-next-growth-engine/"],
-  ["Fast Mode: Nvidia and European Telcos", "https://www.thefastmode.com/technology-solutions/42555-nvidia-teams-with-telefonica-telenor-orange-and-others-to-power-europe-s-ai-future"],
-  ["Telekom: T-Systems AI Foundation", "https://www.telekom.com/en/media/media-information/archive/t-systems-launches-ai-foundation-services-1087430"],
-  ["Orange Cyberdefense AI SOC", "https://newsroom.orange.com/ocd-qevlar-334578/"],
-  ["Google Cloud on Vodafone AI", "https://cloud.google.com/blog/topics/telecommunications/vodafone-gen-ai-enhances-network-lifecycle"],
-  ["AT&T AI in Business Operations", "https://www.business.att.com/learn/articles/using-ai-to-drive-business-success.html"]
-];
-
 function renderOpportunityChart() {
   const canvas = document.getElementById("opportunityChart");
   if (!canvas) return;
@@ -112,18 +102,8 @@ function renderCaseSignals() {
   `).join("");
 }
 
-function renderSourceList() {
-  const list = document.getElementById("sourceList");
-  if (!list) return;
-
-  list.innerHTML = sourceLinks.map(([label, url]) => `
-    <li><a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a></li>
-  `).join("");
-}
-
 function init() {
   renderCaseSignals();
-  renderSourceList();
   renderOpportunityChart();
 }
 
