@@ -1,0 +1,97 @@
+:root {
+  --bg: #eceff4;
+  --panel: #e5e9f0;
+  --text: #2e3440;
+  --muted: #4c566a;
+  --accent: #5e81ac;
+  --accent-strong: #81a1c1;
+  --line: #d8dee9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% -10%, #ffffff 0%, transparent 40%),
+    linear-gradient(160deg, var(--bg) 0%, #e9edf3 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 3rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.intro {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: block;
+  padding: 1.1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, #fff 18%);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent-strong);
+  box-shadow: 0 8px 26px rgba(46, 52, 64, 0.09);
+}
+
+.card-title {
+  display: block;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.card-summary {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-top: 3.25rem;
+  }
+}
