@@ -1,19 +1,100 @@
-:root {
+* {
+  box-sizing: border-box;
+}
+
+.home-page {
+  --bg: #eceff4;
+  --panel: #e5e9f0;
+  --text: #2e3440;
+  --muted: #4c566a;
+  --accent: #5e81ac;
+  --accent-strong: #81a1c1;
+  --line: #d8dee9;
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% -10%, #ffffff 0%, transparent 40%),
+    linear-gradient(160deg, var(--bg) 0%, #e9edf3 100%);
+  min-height: 100vh;
+}
+
+.home-page .container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 3rem;
+}
+
+.home-page .hero {
+  margin-bottom: 2rem;
+}
+
+.home-page .eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+}
+
+.home-page h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.home-page .intro {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.home-page .page-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.home-page .card {
+  display: block;
+  padding: 1.1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, #fff 18%);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-page .card:hover,
+.home-page .card:focus-visible {
+  border-color: var(--accent-strong);
+  box-shadow: 0 8px 26px rgba(46, 52, 64, 0.09);
+}
+
+.home-page .card-title {
+  display: block;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.home-page .card-summary {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.report-page {
   --bg: #ecf1f6;
   --panel: #f8fafc;
   --ink: #1f2a36;
   --muted: #5b6c7d;
   --line: #d4dde8;
   --brand: #356089;
-  --brand-soft: #5d88b3;
-  --ok: #3f6f52;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
   color: var(--ink);
@@ -24,33 +105,33 @@ body {
   min-height: 100vh;
 }
 
-.wrap {
+.report-page .wrap {
   width: min(980px, 92vw);
   margin: 0 auto;
   padding: 3.2rem 0 4rem;
 }
 
-.back-nav {
+.report-page .back-nav {
   margin: 0 0 0.9rem;
 }
 
-.back-link {
+.report-page .back-link {
   color: var(--brand);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
 }
 
-.back-link:hover,
-.back-link:focus-visible {
+.report-page .back-link:hover,
+.report-page .back-link:focus-visible {
   text-decoration: underline;
 }
 
-.hero {
+.report-page .hero {
   margin-bottom: 1.6rem;
 }
 
-.eyebrow {
+.report-page .eyebrow {
   margin: 0 0 0.4rem;
   color: var(--muted);
   letter-spacing: 0.14em;
@@ -59,20 +140,20 @@ body {
   font-weight: 600;
 }
 
-h1 {
+.report-page h1 {
   margin: 0;
   font-size: clamp(1.65rem, 3.3vw, 2.45rem);
   line-height: 1.2;
 }
 
-.lede {
+.report-page .lede {
   margin: 0.9rem 0 0;
   max-width: 70ch;
   color: var(--muted);
   line-height: 1.55;
 }
 
-.panel {
+.report-page .panel {
   background: color-mix(in srgb, var(--panel) 95%, #ffffff 5%);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -80,18 +161,18 @@ h1 {
   margin-top: 0.9rem;
 }
 
-h2 {
+.report-page h2 {
   margin: 0 0 0.75rem;
   font-size: 1.12rem;
 }
 
-.kpi-grid {
+.report-page .kpi-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
-.kpi {
+.report-page .kpi {
   margin: 0;
   background: #ffffff;
   border: 1px solid var(--line);
@@ -99,52 +180,52 @@ h2 {
   padding: 0.8rem 0.85rem;
 }
 
-.kpi-icon {
+.report-page .kpi-icon {
   margin: 0;
   font-size: 1.05rem;
 }
 
-.kpi-value {
+.report-page .kpi-value {
   margin: 0.12rem 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--brand);
 }
 
-.kpi-label {
+.report-page .kpi-label {
   margin: 0;
   font-weight: 600;
   font-size: 0.92rem;
 }
 
-.kpi-note {
+.report-page .kpi-note {
   margin: 0.36rem 0 0;
   color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.4;
 }
 
-.panel-head {
+.report-page .panel-head {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
 }
 
-.panel-head p {
+.report-page .panel-head p {
   margin: 0;
   color: var(--muted);
   font-size: 0.88rem;
 }
 
-#opportunityChart {
+.report-page #opportunityChart {
   width: 100%;
   height: auto;
   display: block;
   margin-top: 0.5rem;
 }
 
-.findings {
+.report-page .findings {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -152,7 +233,7 @@ h2 {
   gap: 0.55rem;
 }
 
-.findings li {
+.report-page .findings li {
   display: grid;
   grid-template-columns: 1.5rem 1fr;
   gap: 0.65rem;
@@ -161,7 +242,7 @@ h2 {
   line-height: 1.45;
 }
 
-.findings span {
+.report-page .findings span {
   display: inline-grid;
   place-items: center;
   width: 1.5rem;
@@ -173,32 +254,32 @@ h2 {
   font-weight: 700;
 }
 
-.case-grid {
+.report-page .case-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.7rem;
 }
 
-.case {
+.report-page .case {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.78rem 0.85rem;
 }
 
-.case h3 {
+.report-page .case h3 {
   margin: 0;
   font-size: 0.96rem;
 }
 
-.case p {
+.report-page .case p {
   margin: 0.42rem 0 0;
   color: var(--muted);
   line-height: 1.42;
   font-size: 0.87rem;
 }
 
-.tag {
+.report-page .tag {
   margin-top: 0.55rem;
   display: inline-block;
   border: 1px solid #cfe1f3;
@@ -210,42 +291,42 @@ h2 {
   padding: 0.16rem 0.48rem;
 }
 
-.roadmap {
+.report-page .roadmap {
   margin: 0;
   padding-left: 1.2rem;
   color: var(--ink);
 }
 
-.roadmap li {
+.report-page .roadmap li {
   margin: 0.42rem 0;
   line-height: 1.45;
 }
 
-.track-grid {
+.report-page .track-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem;
 }
 
-.track {
+.report-page .track {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.78rem 0.85rem;
 }
 
-.track h3 {
+.report-page .track h3 {
   margin: 0;
   font-size: 0.93rem;
   color: var(--brand);
 }
 
-.track ul {
+.report-page .track ul {
   margin: 0.55rem 0 0;
   padding-left: 1rem;
 }
 
-.track li {
+.report-page .track li {
   margin: 0.36rem 0;
   color: var(--ink);
   line-height: 1.4;
@@ -253,13 +334,19 @@ h2 {
 }
 
 @media (max-width: 840px) {
-  .kpi-grid,
-  .case-grid,
-  .track-grid {
+  .report-page .kpi-grid,
+  .report-page .case-grid,
+  .report-page .track-grid {
     grid-template-columns: 1fr;
   }
 
-  .panel-head {
+  .report-page .panel-head {
     display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page .container {
+    padding-top: 3.25rem;
   }
 }

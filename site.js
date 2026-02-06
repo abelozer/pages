@@ -1,3 +1,9 @@
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", () => {
+    document.body.classList.add("is-leaving");
+  });
+});
+
 const opportunityData = [
   { label: "AI Infrastructure (GPU/Cloud)", score: 88 },
   { label: "Managed B2B AI Services", score: 81 },
@@ -102,10 +108,13 @@ function renderCaseSignals() {
   `).join("");
 }
 
-function init() {
+function initReportPage() {
+  if (!document.getElementById("caseGrid") && !document.getElementById("opportunityChart")) {
+    return;
+  }
   renderCaseSignals();
   renderOpportunityChart();
+  window.addEventListener("resize", renderOpportunityChart);
 }
 
-window.addEventListener("resize", renderOpportunityChart);
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", initReportPage);
