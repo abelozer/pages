@@ -71,7 +71,6 @@ h1 {
 
 .card:hover,
 .card:focus-visible {
-  transform: translateY(-2px);
   border-color: var(--accent-strong);
   box-shadow: 0 8px 26px rgba(46, 52, 64, 0.09);
 }
