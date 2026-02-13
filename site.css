@@ -79,7 +79,7 @@
   display: block;
   font-weight: 600;
   color: var(--accent);
-  font-size: 1.04rem;
+  font-size: 1.1rem;
 }
 
 .home-page .card-summary {
@@ -87,7 +87,7 @@
   margin-top: 0.35rem;
   color: var(--muted);
   line-height: 1.45;
-  font-size: 1rem;
+  font-size: 1.06rem;
 }
 
 .report-page {
