@@ -450,7 +450,7 @@
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 1.02rem 1.08rem;
-  margin-top: 0.86rem;
+  margin-top: 1.35rem;
 }
 
 .full-report-page h2 {
@@ -518,7 +518,7 @@
   margin-top: 0.72rem;
   display: flex;
   gap: 0.5rem;
-  align-items: flex-start;
+  align-items: center;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 0.56rem 0.64rem;
@@ -527,7 +527,7 @@
 
 .full-report-page .callout-icon {
   line-height: 1;
-  margin-top: 0.06rem;
+  margin-top: 0;
 }
 
 .full-report-page .callout-fact {
