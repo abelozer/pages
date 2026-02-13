@@ -1,40 +1,55 @@
-<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1400" height="620" viewBox="0 0 1400 620" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#EEF5FC"/>
-      <stop offset="1" stop-color="#E7F0F7"/>
+    <linearGradient id="bg" x1="60" y1="30" x2="1320" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2437"/>
+      <stop offset="1" stop-color="#1E4564"/>
     </linearGradient>
-    <linearGradient id="line" x1="150" y1="380" x2="1050" y2="180" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6CA0CB"/>
-      <stop offset="1" stop-color="#2F5A7F"/>
+    <linearGradient id="route" x1="150" y1="470" x2="1240" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78C7FF"/>
+      <stop offset="0.5" stop-color="#61FFD4"/>
+      <stop offset="1" stop-color="#FFE27A"/>
     </linearGradient>
+    <filter id="glow" x="0" y="0" width="1400" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="520" rx="26" fill="url(#bg)"/>
-  <text x="54" y="70" fill="#234B6B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="38" font-weight="700">Distributed Inference Advantage</text>
-  <text x="54" y="108" fill="#47657E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22">Telco edge nodes execute inference closer to demand</text>
 
-  <path d="M130 370C260 340 340 310 430 260C530 205 640 225 760 240C860 252 940 230 1060 182" stroke="url(#line)" stroke-width="14" stroke-linecap="round"/>
+  <rect width="1400" height="620" rx="28" fill="url(#bg)"/>
+  <circle cx="1240" cy="110" r="170" fill="#2B7095" opacity="0.35"/>
+  <circle cx="200" cy="570" r="220" fill="#2E5D86" opacity="0.35"/>
 
-  <g fill="#2F5A7F">
-    <circle cx="130" cy="370" r="20"/><circle cx="290" cy="320" r="20"/>
-    <circle cx="430" cy="260" r="20"/><circle cx="590" cy="225" r="20"/>
-    <circle cx="760" cy="240" r="20"/><circle cx="930" cy="230" r="20"/>
-    <circle cx="1060" cy="182" r="20"/>
+  <text x="70" y="78" fill="#EAF6FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="44" font-weight="700">Distributed Inference Advantage</text>
+  <text x="70" y="116" fill="#B7D5EA" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">Latency is reduced when execution follows users across edge, metro, and core zones</text>
+
+  <g opacity="0.45" stroke="#7CA8C8" stroke-width="2">
+    <path d="M0 175H1400"/><path d="M0 255H1400"/><path d="M0 335H1400"/><path d="M0 415H1400"/><path d="M0 495H1400"/>
+    <path d="M210 140V580"/><path d="M470 140V580"/><path d="M730 140V580"/><path d="M990 140V580"/><path d="M1250 140V580"/>
+  </g>
+
+  <path d="M140 470C300 455 365 390 470 335C590 272 705 300 835 285C965 270 1075 250 1240 210" stroke="url(#route)" stroke-width="16" stroke-linecap="round" filter="url(#glow)"/>
+
+  <g>
+    <circle cx="140" cy="470" r="17" fill="#D2F2FF"/>
+    <circle cx="300" cy="430" r="17" fill="#BFF7E9"/>
+    <circle cx="470" cy="335" r="17" fill="#A9FFE0"/>
+    <circle cx="640" cy="292" r="17" fill="#B7FFE5"/>
+    <circle cx="835" cy="285" r="17" fill="#CEFFD9"/>
+    <circle cx="1030" cy="258" r="17" fill="#F0F1BD"/>
+    <circle cx="1240" cy="210" r="17" fill="#FFE9A9"/>
   </g>
 
   <g>
-    <rect x="100" y="410" width="120" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
-    <rect x="410" y="312" width="146" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
-    <rect x="760" y="278" width="156" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
-    <text x="120" y="448" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Edge POP</text>
-    <text x="435" y="350" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Metro DC</text>
-    <text x="788" y="316" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Core DC</text>
-  </g>
+    <rect x="110" y="504" width="170" height="70" rx="14" fill="#0F2D45" stroke="#6CA6CB"/>
+    <text x="139" y="547" fill="#DDF1FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Edge POP</text>
 
-  <g>
-    <ellipse cx="1040" cy="90" rx="105" ry="34" fill="#FFFFFF" stroke="#BFD3E5"/>
-    <text x="983" y="98" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22" font-weight="600">Cloud</text>
-    <path d="M1000 124L985 152H1020" stroke="#8AACCA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M1068 124L1053 152H1088" stroke="#8AACCA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="562" y="338" width="190" height="70" rx="14" fill="#0F2D45" stroke="#6CA6CB"/>
+    <text x="595" y="381" fill="#DDF1FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Metro DC</text>
+
+    <rect x="1138" y="244" width="190" height="70" rx="14" fill="#0F2D45" stroke="#6CA6CB"/>
+    <text x="1178" y="287" fill="#DDF1FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Core DC</text>
   </g>
 </svg>

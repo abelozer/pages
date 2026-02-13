@@ -1,25 +1,36 @@
-<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="460" rx="24" fill="#EDF4F9"/>
-  <text x="54" y="68" fill="#234B6B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="38" font-weight="700">AI for Network: Closed Control Loop</text>
-  <g stroke="#6D97BA" stroke-width="10" stroke-linecap="round">
-    <path d="M220 242C220 166 281 104 357 104H846C922 104 983 166 983 242C983 318 922 380 846 380H357C281 380 220 318 220 242Z"/>
+<svg width="1400" height="560" viewBox="0 0 1400 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10293F"/>
+      <stop offset="1" stop-color="#1F4C6D"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="278" y1="280" x2="1120" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78CCFF"/>
+      <stop offset="1" stop-color="#79FFCA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="560" rx="28" fill="url(#bg)"/>
+  <text x="70" y="84" fill="#E9F6FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="44" font-weight="700">AI for Network: Closed Control Loop</text>
+  <text x="70" y="124" fill="#B7D5EA" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">Observe - Predict - Act - Learn</text>
+
+  <path d="M290 280C290 190 362 118 452 118H948C1038 118 1110 190 1110 280C1110 370 1038 442 948 442H452C362 442 290 370 290 280Z" stroke="url(#ring)" stroke-width="14"/>
+
+  <g>
+    <rect x="336" y="218" width="230" height="124" rx="16" fill="#F8FCFF" stroke="#BFD3E5"/>
+    <rect x="594" y="218" width="250" height="124" rx="16" fill="#F8FCFF" stroke="#BFD3E5"/>
+    <rect x="872" y="218" width="200" height="124" rx="16" fill="#F8FCFF" stroke="#BFD3E5"/>
+
+    <text x="402" y="268" fill="#2A587E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="30" font-weight="700">Observe</text>
+    <text x="358" y="302" fill="#47657E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">OTDR, OSA, and traffic telemetry</text>
+
+    <text x="672" y="268" fill="#2A587E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="30" font-weight="700">Predict</text>
+    <text x="618" y="302" fill="#47657E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">Failure, demand, and congestion risk</text>
+
+    <text x="942" y="268" fill="#2A587E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="30" font-weight="700">Act</text>
+    <text x="895" y="302" fill="#47657E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">Reroute, rebalance, and optimize power</text>
   </g>
 
-  <g fill="#FFFFFF" stroke="#BFD3E5" stroke-width="2">
-    <rect x="266" y="188" width="170" height="108" rx="14"/>
-    <rect x="494" y="188" width="210" height="108" rx="14"/>
-    <rect x="762" y="188" width="170" height="108" rx="14"/>
-  </g>
-
-  <text x="306" y="232" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Observe</text>
-  <text x="289" y="262" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Telemetry, OTDR, OSA</text>
-
-  <text x="559" y="232" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Predict</text>
-  <text x="529" y="262" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Fault and load forecasting</text>
-
-  <text x="807" y="232" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Act</text>
-  <text x="781" y="262" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Routing and power control</text>
-
-  <path d="M987 220L1032 242L987 264" stroke="#6D97BA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M213 264L168 242L213 220" stroke="#6D97BA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1114 256L1180 280L1114 304" stroke="#8CCAF0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M286 304L220 280L286 256" stroke="#8CCAF0" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
