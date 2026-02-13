@@ -47,6 +47,7 @@
 .home-page .intro {
   margin: 0.75rem 0 0;
   color: var(--muted);
+  font-size: 1.03rem;
 }
 
 .home-page .page-list {
@@ -78,6 +79,7 @@
   display: block;
   font-weight: 600;
   color: var(--accent);
+  font-size: 1.04rem;
 }
 
 .home-page .card-summary {
@@ -85,7 +87,7 @@
   margin-top: 0.35rem;
   color: var(--muted);
   line-height: 1.45;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .report-page {
@@ -163,7 +165,7 @@
 
 .report-page h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.12rem;
+  font-size: 1.24rem;
 }
 
 .report-page .kpi-grid {
@@ -195,13 +197,13 @@
 .report-page .kpi-label {
   margin: 0;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.99rem;
 }
 
 .report-page .kpi-note {
   margin: 0.36rem 0 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.91rem;
   line-height: 1.4;
 }
 
@@ -215,7 +217,7 @@
 .report-page .panel-head p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
 }
 
 .report-page #opportunityChart {
@@ -269,14 +271,14 @@
 
 .report-page .case h3 {
   margin: 0;
-  font-size: 0.96rem;
+  font-size: 1.06rem;
 }
 
 .report-page .case p {
   margin: 0.42rem 0 0;
   color: var(--muted);
   line-height: 1.42;
-  font-size: 0.87rem;
+  font-size: 0.94rem;
 }
 
 .report-page .tag {
@@ -286,7 +288,7 @@
   color: var(--brand);
   background: #edf5fd;
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.81rem;
   font-weight: 600;
   padding: 0.16rem 0.48rem;
 }
@@ -317,7 +319,7 @@
 
 .report-page .track h3 {
   margin: 0;
-  font-size: 0.93rem;
+  font-size: 1.03rem;
   color: var(--brand);
 }
 
@@ -330,7 +332,7 @@
   margin: 0.36rem 0;
   color: var(--ink);
   line-height: 1.4;
-  font-size: 0.87rem;
+  font-size: 0.94rem;
 }
 
 @media (max-width: 840px) {
@@ -451,18 +453,18 @@
 
 .full-report-page h2 {
   margin: 0 0 0.72rem;
-  font-size: 1.24rem;
+  font-size: 1.32rem;
 }
 
 .full-report-page h3 {
   margin: 0;
-  font-size: 1.06rem;
+  font-size: 1.14rem;
   color: var(--brand);
 }
 
 .full-report-page p,
 .full-report-page li {
-  font-size: 0.94rem;
+  font-size: 1rem;
   line-height: 1.47;
 }
 
