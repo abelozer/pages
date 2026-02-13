@@ -1,0 +1,32 @@
+<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="460" rx="24" fill="#EEF4FA"/>
+  <text x="54" y="70" fill="#234B6B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="38" font-weight="700">Trust-as-a-Service Pillars</text>
+  <g>
+    <rect x="72" y="130" width="206" height="250" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="298" y="130" width="206" height="250" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="524" y="130" width="206" height="250" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="750" y="130" width="206" height="250" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="976" y="130" width="152" height="250" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+
+    <text x="112" y="178" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="23" font-weight="700">Residency</text>
+    <text x="336" y="178" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="23" font-weight="700">Auditability</text>
+    <text x="565" y="178" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="23" font-weight="700">Isolation</text>
+    <text x="785" y="178" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="23" font-weight="700">Routing</text>
+    <text x="1008" y="178" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="23" font-weight="700">Energy</text>
+
+    <text x="97" y="216" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Pinned zones</text>
+    <text x="97" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">In-country control</text>
+
+    <text x="323" y="216" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Inference logs</text>
+    <text x="323" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Compliance docs</text>
+
+    <text x="549" y="216" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Model separation</text>
+    <text x="549" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Data guarantees</text>
+
+    <text x="775" y="216" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">AI-priority path</text>
+    <text x="775" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Deterministic SLA</text>
+
+    <text x="995" y="216" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Transparent source</text>
+    <text x="995" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18">Tok/$ visibility</text>
+  </g>
+</svg>

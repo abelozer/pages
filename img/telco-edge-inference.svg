@@ -1,0 +1,40 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF5FC"/>
+      <stop offset="1" stop-color="#E7F0F7"/>
+    </linearGradient>
+    <linearGradient id="line" x1="150" y1="380" x2="1050" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6CA0CB"/>
+      <stop offset="1" stop-color="#2F5A7F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" rx="26" fill="url(#bg)"/>
+  <text x="54" y="70" fill="#234B6B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="38" font-weight="700">Distributed Inference Advantage</text>
+  <text x="54" y="108" fill="#47657E" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22">Telco edge nodes execute inference closer to demand</text>
+
+  <path d="M130 370C260 340 340 310 430 260C530 205 640 225 760 240C860 252 940 230 1060 182" stroke="url(#line)" stroke-width="14" stroke-linecap="round"/>
+
+  <g fill="#2F5A7F">
+    <circle cx="130" cy="370" r="20"/><circle cx="290" cy="320" r="20"/>
+    <circle cx="430" cy="260" r="20"/><circle cx="590" cy="225" r="20"/>
+    <circle cx="760" cy="240" r="20"/><circle cx="930" cy="230" r="20"/>
+    <circle cx="1060" cy="182" r="20"/>
+  </g>
+
+  <g>
+    <rect x="100" y="410" width="120" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
+    <rect x="410" y="312" width="146" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
+    <rect x="760" y="278" width="156" height="58" rx="12" fill="#FFFFFF" stroke="#BFD3E5"/>
+    <text x="120" y="448" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Edge POP</text>
+    <text x="435" y="350" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Metro DC</text>
+    <text x="788" y="316" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21" font-weight="600">Core DC</text>
+  </g>
+
+  <g>
+    <ellipse cx="1040" cy="90" rx="105" ry="34" fill="#FFFFFF" stroke="#BFD3E5"/>
+    <text x="983" y="98" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="22" font-weight="600">Cloud</text>
+    <path d="M1000 124L985 152H1020" stroke="#8AACCA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1068 124L1053 152H1088" stroke="#8AACCA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

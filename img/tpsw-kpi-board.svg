@@ -1,0 +1,24 @@
+<svg width="1200" height="460" viewBox="0 0 1200 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="460" rx="24" fill="#EEF4FA"/>
+  <text x="54" y="68" fill="#234B6B" font-family="Avenir Next, Segoe UI, sans-serif" font-size="38" font-weight="700">TPS/W Operations Board</text>
+  <g>
+    <rect x="72" y="118" width="320" height="270" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="440" y="118" width="320" height="270" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+    <rect x="808" y="118" width="320" height="270" rx="16" fill="#FFFFFF" stroke="#C8D9E8"/>
+
+    <text x="110" y="166" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Utilization</text>
+    <rect x="110" y="192" width="242" height="24" rx="12" fill="#DCEAF6"/>
+    <rect x="110" y="192" width="196" height="24" rx="12" fill="#5B8FB8"/>
+    <text x="110" y="248" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">Target: 75-85%</text>
+
+    <text x="478" y="166" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Batching</text>
+    <circle cx="600" cy="256" r="72" fill="#E8F1F9" stroke="#BFD3E5"/>
+    <path d="M600 256L665 218" stroke="#3D6F98" stroke-width="8" stroke-linecap="round"/>
+    <text x="548" y="352" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="20">Primary knob</text>
+
+    <text x="847" y="166" fill="#2F5A7F" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" font-weight="700">Model Fit</text>
+    <text x="847" y="214" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21">70B = prestige</text>
+    <text x="847" y="246" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21">13B = profit</text>
+    <text x="847" y="278" fill="#4B667D" font-family="Avenir Next, Segoe UI, sans-serif" font-size="21">Right-size by workload</text>
+  </g>
+</svg>
