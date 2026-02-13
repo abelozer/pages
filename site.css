@@ -510,6 +510,37 @@
   padding-left: 0.62rem;
 }
 
+.full-report-page .callout {
+  margin-top: 0.72rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.56rem 0.64rem;
+  background: #ffffff;
+}
+
+.full-report-page .callout-icon {
+  line-height: 1;
+  margin-top: 0.06rem;
+}
+
+.full-report-page .callout-fact {
+  border-left: 4px solid #94bedf;
+  background: #f2f8fd;
+}
+
+.full-report-page .callout-warning {
+  border-left: 4px solid #efc08a;
+  background: #fff8ef;
+}
+
+.full-report-page .callout-note {
+  border-left: 4px solid #b5c8df;
+  background: #f4f8fc;
+}
+
 .full-report-page .kpi-list {
   display: flex;
   gap: 0.46rem;
