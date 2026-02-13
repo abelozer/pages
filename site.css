@@ -559,34 +559,6 @@
   font-size: 0.82rem;
 }
 
-.full-report-page .list-media {
-  list-style: none;
-  margin-left: -1.05rem;
-}
-
-.full-report-page .inline-figure {
-  margin: 0.52rem 0 0.2rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.full-report-page .inline-figure img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.full-report-page .inline-figure figcaption {
-  margin: 0;
-  padding: 0.48rem 0.62rem 0.54rem;
-  color: var(--muted);
-  font-size: 0.83rem;
-  line-height: 1.35;
-  border-top: 1px solid var(--line);
-}
-
 @media (max-width: 880px) {
   .full-report-page .columns {
     grid-template-columns: 1fr;
