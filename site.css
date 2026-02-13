@@ -545,6 +545,11 @@
   background: #f4f8fc;
 }
 
+.full-report-page .callout-example {
+  border-left: 4px solid #8fd0bf;
+  background: #effaf6;
+}
+
 .full-report-page .section-figure {
   margin: 0.78rem 0 0.2rem;
   border: 1px solid var(--line);
