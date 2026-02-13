@@ -47,7 +47,7 @@
 .home-page .intro {
   margin: 0.75rem 0 0;
   color: var(--muted);
-  font-size: 1.03rem;
+  font-size: 1.1rem;
 }
 
 .home-page .page-list {
@@ -79,7 +79,7 @@
   display: block;
   font-weight: 600;
   color: var(--accent);
-  font-size: 1.1rem;
+  font-size: 1.18rem;
 }
 
 .home-page .card-summary {
@@ -87,7 +87,7 @@
   margin-top: 0.35rem;
   color: var(--muted);
   line-height: 1.45;
-  font-size: 1.06rem;
+  font-size: 1.12rem;
 }
 
 .report-page {
@@ -153,6 +153,7 @@
   max-width: 70ch;
   color: var(--muted);
   line-height: 1.55;
+  font-size: 1.05rem;
 }
 
 .report-page .panel {
@@ -165,7 +166,7 @@
 
 .report-page h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.24rem;
+  font-size: 1.34rem;
 }
 
 .report-page .kpi-grid {
@@ -197,13 +198,13 @@
 .report-page .kpi-label {
   margin: 0;
   font-weight: 600;
-  font-size: 0.99rem;
+  font-size: 1.07rem;
 }
 
 .report-page .kpi-note {
   margin: 0.36rem 0 0;
   color: var(--muted);
-  font-size: 0.91rem;
+  font-size: 0.98rem;
   line-height: 1.4;
 }
 
@@ -217,7 +218,7 @@
 .report-page .panel-head p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 1rem;
 }
 
 .report-page #opportunityChart {
@@ -271,14 +272,14 @@
 
 .report-page .case h3 {
   margin: 0;
-  font-size: 1.06rem;
+  font-size: 1.14rem;
 }
 
 .report-page .case p {
   margin: 0.42rem 0 0;
   color: var(--muted);
   line-height: 1.42;
-  font-size: 0.94rem;
+  font-size: 1rem;
 }
 
 .report-page .tag {
@@ -288,7 +289,7 @@
   color: var(--brand);
   background: #edf5fd;
   border-radius: 999px;
-  font-size: 0.81rem;
+  font-size: 0.87rem;
   font-weight: 600;
   padding: 0.16rem 0.48rem;
 }
@@ -319,7 +320,7 @@
 
 .report-page .track h3 {
   margin: 0;
-  font-size: 1.03rem;
+  font-size: 1.12rem;
   color: var(--brand);
 }
 
@@ -332,7 +333,7 @@
   margin: 0.36rem 0;
   color: var(--ink);
   line-height: 1.4;
-  font-size: 0.94rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 840px) {
@@ -417,6 +418,7 @@
   max-width: 76ch;
   color: var(--muted);
   line-height: 1.53;
+  font-size: 1.06rem;
 }
 
 .full-report-page .hero-ribbon {
@@ -453,18 +455,18 @@
 
 .full-report-page h2 {
   margin: 0 0 0.72rem;
-  font-size: 1.32rem;
+  font-size: 1.42rem;
 }
 
 .full-report-page h3 {
   margin: 0;
-  font-size: 1.14rem;
+  font-size: 1.22rem;
   color: var(--brand);
 }
 
 .full-report-page p,
 .full-report-page li {
-  font-size: 1rem;
+  font-size: 1.07rem;
   line-height: 1.47;
 }
 
